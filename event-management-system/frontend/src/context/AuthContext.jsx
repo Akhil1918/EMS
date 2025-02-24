@@ -6,7 +6,7 @@ const AuthContext = createContext();
 
 // Create axios instance with base URL
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',  // adjust this to match your backend URL
+  baseURL: 'https://ems-backend-xir2.onrender.com/api',  // adjust this to match your backend URL
   headers: {
     'Content-Type': 'application/json'
   }
