@@ -1,0 +1,11 @@
+{
+    "codium.codeCompletion.enable": false,
+    "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "postman.settings.dotenv-detection-notification-visibility": false
+}
