@@ -44,7 +44,7 @@ const EquipmentDetails = () => {
   const fetchEquipment = async () => {
     try {
       const token = sessionStorage.getItem('token');
-      const response = await axios.get(`http://localhost:5000/api/equipment/${id}`, {
+      const response = await axios.get(`https://ems-backend-xir2.onrender.com/api/equipment/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEquipment(response.data.data);
@@ -56,7 +56,7 @@ const EquipmentDetails = () => {
   const fetchReviews = async () => {
     try {
       const token = sessionStorage.getItem('token');
-      const response = await axios.get(`http://localhost:5000/api/equipment/${id}/reviews`, {
+      const response = await axios.get(`https://ems-backend-xir2.onrender.com/api/equipment/${id}/reviews`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -94,7 +94,7 @@ const EquipmentDetails = () => {
     try {
       const token = sessionStorage.getItem('token');
       await axios.post(
-        `http://localhost:5000/api/equipment/${id}/reviews`,
+        `https://ems-backend-xir2.onrender.com/api/equipment/${id}/reviews`,
         newReview,
         {
           headers: { Authorization: `Bearer ${token}` }
@@ -113,7 +113,7 @@ const EquipmentDetails = () => {
     try {
       const token = sessionStorage.getItem('token');
       await axios.patch(
-        `http://localhost:5000/api/equipment/${id}/availability`,
+        `https://ems-backend-xir2.onrender.com/api/equipment/${id}/availability`,
         { availability: !equipment.availability },
         {
           headers: { Authorization: `Bearer ${token}` }
