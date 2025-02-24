@@ -11,7 +11,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     try {
       // Call your backend endpoint for password reset (ensure this endpoint exists)
-      await axios.post("http://localhost:5000/api/auth/forgot-password", { email });
+      await axios.post("https://ems-backend-xir2.onrender.com/api/auth/forgot-password", { email });
       setMessage("Password reset instructions have been sent to your email.");
       setError("");
     } catch (err) {
