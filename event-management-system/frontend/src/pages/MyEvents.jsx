@@ -86,7 +86,7 @@ const MyEvents = () => {
 
         console.log('Fetching events for user:', user._id); // Debug log
         const res = await axios.get(
-          `http://localhost:5000/api/events/my-events`,
+          `https://ems-backend-xir2.onrender.com/api/events/my-events`,
           { 
             headers: { 
               Authorization: `Bearer ${token}` 
@@ -181,7 +181,7 @@ const MyEvents = () => {
         return;
       }
 
-      await axios.delete(`http://localhost:5000/api/events/${selectedEvent._id}`, {
+      await axios.delete(`https://ems-backend-xir2.onrender.com/api/events/${selectedEvent._id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEvents(events.filter(event => event._id !== selectedEvent._id));
@@ -203,7 +203,7 @@ const MyEvents = () => {
       delete duplicateEvent._id;
       
       const response = await axios.post(
-        'http://localhost:5000/api/events',
+        'https://ems-backend-xir2.onrender.com/api/events',
         duplicateEvent,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -218,7 +218,7 @@ const MyEvents = () => {
     try {
       const token = sessionStorage.getItem("token");
       const response = await axios.get(
-        `http://localhost:5000/api/events/${eventId}/attendance-report`,
+        `https://ems-backend-xir2.onrender.com/api/events/${eventId}/attendance-report`,
         {
           headers: { Authorization: `Bearer ${token}` },
           responseType: 'blob'
