@@ -68,7 +68,7 @@ const AddEquipment = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/equipment/add",
+        "https://ems-backend-xir2.onrender.com/api/equipment/add",
         {
           name: formData.name,
           description: formData.description,
