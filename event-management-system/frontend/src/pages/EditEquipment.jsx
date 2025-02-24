@@ -40,7 +40,7 @@ const EditEquipment = () => {
     const fetchEquipment = async () => {
       try {
         const token = sessionStorage.getItem('token');
-        const response = await axios.get(`http://localhost:5000/api/equipment/${id}`, {
+        const response = await axios.get(`https://ems-backend-xir2.onrender.com/api/equipment/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const equipment = response.data.data;
@@ -85,7 +85,7 @@ const EditEquipment = () => {
 
     try {
       const token = sessionStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/equipment/${id}`, formData, {
+      await axios.put(`https://ems-backend-xir2.onrender.com/api/equipment/${id}`, formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSuccess('Equipment updated successfully!');
