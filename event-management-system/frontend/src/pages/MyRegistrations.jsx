@@ -44,7 +44,7 @@ const MyRegistrations = () => {
         return;
       }
 
-      const res = await axios.get("http://localhost:5000/api/registrations/", {
+      const res = await axios.get("https://ems-backend-xir2.onrender.com/api/registrations/", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -70,7 +70,7 @@ const MyRegistrations = () => {
     try {
       const token = sessionStorage.getItem("token");
       const response = await axios.get(
-        `http://localhost:5000/api/registrations/${registrationId}/ticket`,
+        `https://ems-backend-xir2.onrender.com/api/registrations/${registrationId}/ticket`,
         {
           headers: { 
             Authorization: `Bearer ${token}`,
@@ -99,7 +99,7 @@ const MyRegistrations = () => {
   const handleCancelRegistration = async (registrationId, eventId) => {
     try {
       const res = await axios.delete(
-        `http://localhost:5000/api/registrations/${registrationId}`,
+        `https://ems-backend-xir2.onrender.com/api/registrations/${registrationId}`,
         {
           headers: { 
             Authorization: `Bearer ${sessionStorage.getItem("token")}`,
