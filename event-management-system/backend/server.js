@@ -21,8 +21,7 @@ connectDB();
 
 // Allow multiple origins during development
 const allowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:5174'
+  'https://ems-zf89.onrender.com'
 ];
 
 // Middleware
