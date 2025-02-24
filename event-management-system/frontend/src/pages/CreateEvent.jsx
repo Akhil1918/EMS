@@ -96,7 +96,7 @@ const handleImageUpload = (e) => {
     const fetchEquipment = async () => {
       try {
         setLoadingEquipment(true);
-        const response = await axios.get('http://localhost:5000/api/equipment/available');
+        const response = await axios.get('https://ems-backend-xir2.onrender.com/api/equipment/available');
         console.log('API Response:', response); // Add this
         
         const equipmentData = response.data?.data || [];
@@ -252,7 +252,7 @@ const handleImageUpload = (e) => {
         return;
       }
 
-      const response = await axios.post('http://localhost:5000/api/events', eventPayload, {
+      const response = await axios.post('https://ems-backend-xir2.onrender.com/api/events', eventPayload, {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("token")}`,
           'Content-Type': 'application/json'
