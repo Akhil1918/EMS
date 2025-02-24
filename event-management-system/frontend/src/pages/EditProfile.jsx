@@ -103,7 +103,7 @@ const EditProfile = () => {
     const fetchUserData = async () => {
       try {
         const token = sessionStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/api/auth/me", {
+        const response = await axios.get("https://ems-backend-xir2.onrender.com/api/auth/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         
