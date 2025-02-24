@@ -29,7 +29,7 @@ const EditEvent = () => {
         setLoading(true);
         setError("");
         const token = sessionStorage.getItem("token");
-        const res = await axios.get(`http://localhost:5000/api/events/${eventId}`, {
+        const res = await axios.get(`https://ems-backend-xir2.onrender.com/api/events/${eventId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         
@@ -79,7 +79,7 @@ const EditEvent = () => {
 
     try {
       const token = sessionStorage.getItem("token");
-      const res = await axios.put(`http://localhost:5000/api/events/${eventId}`, eventData, {
+      const res = await axios.put(`https://ems-backend-xir2.onrender.com/api/events/${eventId}`, eventData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSuccess("Event updated successfully!");
