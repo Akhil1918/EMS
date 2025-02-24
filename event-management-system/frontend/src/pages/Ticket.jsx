@@ -12,7 +12,7 @@ const Ticket = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(`http://localhost:5000/api/registrations/tickets/${registrationId}`, {
+      const response = await axios.get(`https://ems-backend-xir2.onrender.com/api/registrations/tickets/${registrationId}`, {
         responseType: "blob",
         headers: { Authorization: `Bearer ${token}` },
       });
