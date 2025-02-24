@@ -12,7 +12,7 @@ const EventRegistration = () => {
     const fetchEvents = async () => {
       try {
         const token = sessionStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/events", {
+        const res = await axios.get("https://ems-backend-xir2.onrender.com/api/events", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setEvents(res.data.data);
@@ -30,7 +30,7 @@ const EventRegistration = () => {
     try {
       const token = sessionStorage.getItem("token");
       const res = await axios.post(
-        `http://localhost:5000/api/registrations/register/${eventId}`,
+        `https://ems-backend-xir2.onrender.com/api/registrations/register/${eventId}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
