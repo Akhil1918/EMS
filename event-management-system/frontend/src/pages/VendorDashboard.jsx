@@ -59,7 +59,7 @@ const VendorDashboard = () => {
   const handleDelete = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/equipment/${selectedEquipment._id}`, {
+      await axios.delete(`https://ems-backend-xir2.onrender.com/api/equipment/${selectedEquipment._id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       // Refresh equipment list
