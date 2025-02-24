@@ -107,7 +107,7 @@ const Notifications = () => {
       if (!notification.read) {
         const token = sessionStorage.getItem('token');
         await axios.put(
-          `http://localhost:5000/api/notifications/${notification._id}/read`,
+          `https://ems-backend-xir2.onrender.com/api/notifications/${notification._id}/read`,
           {},
           { headers: { Authorization: `Bearer ${token}` } }
         );
