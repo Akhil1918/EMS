@@ -43,7 +43,7 @@ const BrowseEvents = () => {
   const fetchEvents = async () => {
     try {
       const token = sessionStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/events", {
+      const res = await axios.get("https://ems-backend-xir2.onrender.com/api/events", {
         headers: { Authorization: `Bearer ${token}` },
         params: {
           search: filters.search,
