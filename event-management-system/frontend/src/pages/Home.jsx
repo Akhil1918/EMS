@@ -16,7 +16,9 @@ import { useNavigate } from "react-router-dom";
 import {
   EventAvailable,
   People,
-  Business
+  Business,
+  ArrowForward,
+  Star
 } from "@mui/icons-material";
 
 const Home = () => {
@@ -32,19 +34,32 @@ const Home = () => {
     {
       icon: <People fontSize="large" />,
       title: "Attendee Experience",
-      text: "Easy registration process, ticket management, and real-time updates for participants."
+      text: "Easy registration process, ticket management, and real-time updates for participants. Keep everyone informed and engaged."
     },
     {
       icon: <Business fontSize="large" />,
       title: "Vendor Solutions",
-      text: "Equipment management, service listings, and business promotion tools for vendors."
+      text: "Equipment management, service listings, and business promotion tools for vendors. Connect with the right partners for your events."
     }
   ];
 
   const steps = [
-    { title: "Sign Up", description: "Create your free account in seconds" },
-    { title: "Plan", description: "Set up your event details and requirements" },
-    { title: "Launch", description: "Publish and start managing registrations" }
+    { title: "Sign Up", description: "Create your account in seconds with just a few clicks. No credit card required." },
+    { title: "Plan", description: "Set up your event details, customize your requirements, and build your perfect event." },
+    { title: "Launch", description: "Publish and start managing registrations with our powerful tools and analytics." }
+  ];
+
+  const testimonials = [
+    {
+      name: "Sarah Johnson",
+      role: "Event Coordinator",
+      text: "This platform transformed how we manage our corporate events. The intuitive interface saved us countless hours."
+    },
+    {
+      name: "Michael Chen",
+      role: "Conference Organizer",
+      text: "From small meetups to large conferences, this tool scales perfectly with our needs. Highly recommended!"
+    }
   ];
 
   return (
@@ -53,38 +68,77 @@ const Home = () => {
       disableGutters 
       sx={{ 
         minHeight: '100vh',
-        background: 'linear-gradient(to bottom, #0a0a0c, #111114)',
-        color: '#f3f4f6'
+        background: 'linear-gradient(135deg, #0a0a1a, #141428)',
+        color: '#f3f4f6',
+        overflow: 'hidden',
+        position: 'relative'
       }}
     >
+      {/* Background gradient orbs */}
+      <Box sx={{
+        position: 'absolute',
+        width: '600px',
+        height: '600px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.05) 50%, rgba(0,0,0,0) 70%)',
+        top: '-300px',
+        right: '-200px',
+        zIndex: 0,
+        filter: 'blur(80px)'
+      }} />
+      
+      <Box sx={{
+        position: 'absolute',
+        width: '500px',
+        height: '500px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(99,102,241,0.05) 50%, rgba(0,0,0,0) 70%)',
+        bottom: '-200px',
+        left: '-100px',
+        zIndex: 0,
+        filter: 'blur(80px)'
+      }} />
+
       {/* Inner container for content */}
-      <Container maxWidth="xl" sx={{ py: 8 }}>
+      <Container maxWidth="xl" sx={{ py: 10, position: 'relative', zIndex: 1 }}>
         {/* Hero Section */}
         <Box sx={{ 
           textAlign: 'center', 
-          mb: 10,
-          background: 'linear-gradient(145deg, #16161a, #1a1a1f)',
-          py: 8,
-          borderRadius: 4,
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)'
+          mb: 12,
+          background: 'linear-gradient(145deg, rgba(26,26,35,0.7), rgba(22,22,30,0.9))',
+          py: 10,
+          px: 4,
+          borderRadius: 5,
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+          border: '1px solid rgba(255,255,255,0.08)'
         }}>
           <Typography variant="h2" component="h1" gutterBottom sx={{ 
-            fontWeight: 700,
+            fontWeight: 800,
             color: '#ffffff',
             letterSpacing: '-0.025em',
-            fontSize: '2.25rem'
+            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+            textShadow: '0 4px 12px rgba(0,0,0,0.1)',
+            background: 'linear-gradient(135deg, #ffffff 30%, #c7d2fe 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
           }}>
             Modern Event Management Platform
           </Typography>
           <Typography variant="h5" sx={{ 
-            mb: 4,
-            color: '#9ca3af',
-            fontWeight: 500
+            mb: 5,
+            color: '#aeb6d0',
+            fontWeight: 500,
+            maxWidth: '800px',
+            mx: 'auto',
+            lineHeight: 1.6,
+            fontSize: { xs: '1rem', sm: '1.15rem', md: '1.25rem' }
           }}>
-            Streamline your events from planning to execution
+            Streamline your events from planning to execution with our powerful yet intuitive platform designed for event professionals
           </Typography>
           <Button 
             variant="contained" 
+            endIcon={<ArrowForward />}
             sx={{ 
               px: 6, 
               py: 2, 
@@ -92,10 +146,12 @@ const Home = () => {
               background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
               color: '#ffffff',
               borderRadius: '0.75rem',
+              boxShadow: '0 4px 14px rgba(99, 102, 241, 0.5)',
               '&:hover': { 
                 transform: 'translateY(-2px)',
-                boxShadow: '0 4px 12px rgba(99, 102, 241, 0.3)'
-              }
+                boxShadow: '0 8px 20px rgba(99, 102, 241, 0.6)'
+              },
+              transition: 'all 0.3s ease'
             }}
             onClick={() => navigate("/register")}
           >
@@ -104,29 +160,43 @@ const Home = () => {
         </Box>
 
         {/* Features Grid */}
-        <Grid container spacing={4} sx={{ mb: 10, px: 2 }}>
+        <Typography variant="h3" align="center" gutterBottom sx={{ 
+          fontWeight: 700,
+          color: '#ffffff',
+          fontSize: { xs: '1.75rem', md: '2.25rem' },
+          mb: 6
+        }}>
+          Powerful Features for Every Need
+        </Typography>
+        
+        <Grid container spacing={4} sx={{ mb: 12, px: { xs: 2, md: 4 } }}>
           {features.map((feature, index) => (
             <Grid item xs={12} md={4} key={index}>
               <Paper 
                 sx={{ 
                   p: 4,
-                  background: 'linear-gradient(145deg, #16161a, #1a1a1f)',
-                  borderRadius: '1rem',
+                  height: '100%',
+                  background: 'linear-gradient(145deg, rgba(26,26,35,0.7), rgba(22,22,30,0.9))',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '1.25rem',
                   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
-                  transition: 'all 0.2s ease',
+                  transition: 'all 0.3s ease',
+                  border: '1px solid rgba(255,255,255,0.05)',
                   '&:hover': { 
-                    transform: 'translateY(-4px)',
-                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
+                    transform: 'translateY(-8px)',
+                    boxShadow: '0 12px 40px rgba(0, 0, 0, 0.3)',
+                    borderColor: 'rgba(99, 102, 241, 0.3)'
                   }
                 }}
               >
                 <Avatar sx={{ 
                   bgcolor: 'primary.main', 
                   color: 'white', 
-                  width: 56, 
-                  height: 56, 
+                  width: 70, 
+                  height: 70, 
                   mb: 3,
-                  background: 'linear-gradient(135deg, #6366f1, #8b5cf6)'
+                  background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+                  boxShadow: '0 8px 20px rgba(99, 102, 241, 0.4)'
                 }}>
                   {feature.icon}
                 </Avatar>
@@ -138,8 +208,9 @@ const Home = () => {
                   {feature.title}
                 </Typography>
                 <Typography variant="body1" sx={{ 
-                  color: '#9ca3af',
-                  lineHeight: 1.6
+                  color: '#aeb6d0',
+                  lineHeight: 1.8,
+                  fontSize: '1rem'
                 }}>
                   {feature.text}
                 </Typography>
@@ -151,61 +222,104 @@ const Home = () => {
         {/* How It Works */}
         <Box sx={{ 
           textAlign: 'center', 
-          mb: 10,
-          background: 'linear-gradient(145deg, #16161a, #1a1a1f)',
-          borderRadius: '1.25rem',
+          mb: 12,
+          background: 'linear-gradient(145deg, rgba(26,26,35,0.7), rgba(22,22,30,0.9))',
+          backdropFilter: 'blur(10px)',
+          borderRadius: '1.5rem',
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
-          p: 4
+          p: { xs: 4, md: 6 },
+          border: '1px solid rgba(255,255,255,0.05)'
         }}>
           <Typography variant="h3" gutterBottom sx={{ 
             fontWeight: 700,
             color: '#ffffff',
-            fontSize: '2rem'
+            fontSize: { xs: '1.75rem', md: '2.25rem' },
+            mb: 2
           }}>
             Simple Three-Step Process
           </Typography>
+          <Typography variant="body1" sx={{ 
+            color: '#aeb6d0',
+            maxWidth: '700px',
+            mx: 'auto',
+            mb: 5
+          }}>
+            Get your event up and running in minutes with our streamlined workflow
+          </Typography>
           <Divider sx={{ 
-            width: 100, 
+            width: 120, 
             height: 4, 
             bgcolor: 'primary.main', 
             mx: 'auto', 
-            mb: 6,
-            background: 'linear-gradient(90deg, #6366f1, #8b5cf6)'
+            mb: 8,
+            background: 'linear-gradient(90deg, #6366f1, #8b5cf6)',
+            borderRadius: '2px'
           }} />
           
           <Grid container spacing={4}>
             {steps.map((step, index) => (
               <Grid item xs={12} md={4} key={index}>
                 <Card sx={{ 
-                  p: 3, 
-                  background: 'linear-gradient(145deg, #16161a, #1a1a1f)',
-                  borderRadius: '1rem',
-                  borderLeft: '4px solid #6366f1',
-                  transition: 'all 0.2s ease',
+                  p: 4, 
+                  height: '100%',
+                  background: 'linear-gradient(145deg, rgba(26,26,35,0.7), rgba(22,22,30,0.9))',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '1.25rem',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s ease',
                   '&:hover': {
-                    transform: 'translateY(-4px)',
-                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)'
+                    transform: 'translateY(-8px)',
+                    boxShadow: '0 8px 30px rgba(0, 0, 0, 0.3)',
+                    '& .step-number': {
+                      transform: 'scale(1.1)'
+                    }
                   }
                 }}>
-                  <Typography variant="h1" sx={{ 
-                    color: 'primary.main',
-                    mb: 2,
-                    background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    fontSize: '4rem'
-                  }}>
+                  <Box sx={{
+                    position: 'absolute',
+                    top: -20,
+                    right: -20,
+                    width: 120,
+                    height: 120,
+                    borderRadius: '50%',
+                    background: 'linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.05))',
+                    filter: 'blur(30px)',
+                    zIndex: 0
+                  }} />
+                  
+                  <Typography 
+                    className="step-number"
+                    variant="h1" 
+                    sx={{ 
+                      color: 'primary.main',
+                      mb: 3,
+                      background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      fontSize: '5rem',
+                      fontWeight: 800,
+                      lineHeight: 1,
+                      position: 'relative',
+                      zIndex: 1,
+                      transition: 'transform 0.3s ease'
+                    }}>
                     0{index + 1}
                   </Typography>
                   <Typography variant="h5" gutterBottom sx={{ 
                     color: '#ffffff',
-                    fontWeight: 600
+                    fontWeight: 700,
+                    position: 'relative',
+                    zIndex: 1
                   }}>
                     {step.title}
                   </Typography>
                   <Typography variant="body1" sx={{ 
-                    color: '#9ca3af',
-                    lineHeight: 1.6
+                    color: '#aeb6d0',
+                    lineHeight: 1.8,
+                    position: 'relative',
+                    zIndex: 1
                   }}>
                     {step.description}
                   </Typography>
@@ -215,35 +329,133 @@ const Home = () => {
           </Grid>
         </Box>
 
+        {/* Testimonials Section */}
+        <Box sx={{ mb: 12 }}>
+          <Typography variant="h3" align="center" gutterBottom sx={{ 
+            fontWeight: 700,
+            color: '#ffffff',
+            fontSize: { xs: '1.75rem', md: '2.25rem' },
+            mb: 6
+          }}>
+            What Our Users Say
+          </Typography>
+          
+          <Grid container spacing={4}>
+            {testimonials.map((testimonial, index) => (
+              <Grid item xs={12} md={6} key={index}>
+                <Paper sx={{
+                  p: 4,
+                  background: 'linear-gradient(145deg, rgba(26,26,35,0.7), rgba(22,22,30,0.9))',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '1rem',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
+                  border: '1px solid rgba(255,255,255,0.05)',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}>
+                  <Box sx={{ display: 'flex', mb: 2 }}>
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} sx={{ color: '#eab308', fontSize: '1.25rem' }} />
+                    ))}
+                  </Box>
+                  <Typography variant="body1" sx={{ 
+                    color: '#d1d5db',
+                    fontStyle: 'italic',
+                    mb: 3,
+                    lineHeight: 1.8,
+                    flex: 1
+                  }}>
+                    "{testimonial.text}"
+                  </Typography>
+                  <Box>
+                    <Typography variant="subtitle1" sx={{ 
+                      fontWeight: 600,
+                      color: '#ffffff'
+                    }}>
+                      {testimonial.name}
+                    </Typography>
+                    <Typography variant="body2" sx={{ 
+                      color: '#9ca3af'
+                    }}>
+                      {testimonial.role}
+                    </Typography>
+                  </Box>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+
         {/* CTA Section */}
         <Box sx={{ 
           textAlign: 'center', 
-          background: 'linear-gradient(145deg, #16161a, #1a1a1f)',
-          py: 8, 
-          borderRadius: '1.25rem',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
+          background: 'linear-gradient(145deg, rgba(26,26,35,0.8), rgba(22,22,30,0.95))',
+          py: 10, 
+          px: 4,
+          borderRadius: '1.5rem',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255,255,255,0.08)',
+          position: 'relative',
+          overflow: 'hidden'
         }}>
+          <Box sx={{
+            position: 'absolute',
+            width: '400px',
+            height: '400px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.05) 50%, rgba(0,0,0,0) 70%)',
+            top: '-200px',
+            right: '-100px',
+            filter: 'blur(60px)',
+            zIndex: 0
+          }} />
+          
           <Typography variant="h3" gutterBottom sx={{ 
-            fontWeight: 700,
+            fontWeight: 800,
             color: '#ffffff',
-            fontSize: '2rem'
+            fontSize: { xs: '1.75rem', md: '2.5rem' },
+            position: 'relative',
+            zIndex: 1,
+            textShadow: '0 2px 10px rgba(0,0,0,0.1)',
+            maxWidth: '900px',
+            mx: 'auto'
           }}>
             Ready to Transform Your Event Management?
           </Typography>
+          
+          <Typography variant="h6" sx={{ 
+            color: '#aeb6d0',
+            mb: 6,
+            maxWidth: '700px',
+            mx: 'auto',
+            lineHeight: 1.6,
+            position: 'relative',
+            zIndex: 1
+          }}>
+            Join thousands of event organizers who are saving time and creating memorable experiences
+          </Typography>
+          
           <Button
             variant="contained"
+            endIcon={<ArrowForward />}
             sx={{ 
-              mt: 4, 
+              mt: 2, 
               px: 8, 
-              py: 2, 
+              py: 2.5, 
               fontSize: '1.2rem',
               background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
               color: '#ffffff',
               borderRadius: '0.75rem',
+              boxShadow: '0 4px 14px rgba(99, 102, 241, 0.5)',
+              position: 'relative',
+              zIndex: 1,
               '&:hover': { 
-                transform: 'translateY(-2px)',
-                boxShadow: '0 4px 12px rgba(99, 102, 241, 0.3)'
-              }
+                transform: 'translateY(-2px) scale(1.05)',
+                boxShadow: '0 8px 20px rgba(99, 102, 241, 0.6)'
+              },
+              transition: 'all 0.3s ease'
             }}
             onClick={() => navigate("/register")}
           >
