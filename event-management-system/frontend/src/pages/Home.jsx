@@ -315,55 +315,7 @@ const Home = () => {
           </Grid>
         </Box>
 
-        {/* CTA Section */}
-        <Box sx={{ 
-          textAlign: 'center', 
-          background: 'linear-gradient(145deg, rgba(26,26,35,0.8), rgba(22,22,30,0.95))',
-          py: 10, 
-          px: 4,
-          borderRadius: '1.5rem',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-          backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(255,255,255,0.08)',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          <Box sx={{
-            position: 'absolute',
-            width: '400px',
-            height: '400px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.05) 50%, rgba(0,0,0,0) 70%)',
-            top: '-200px',
-            right: '-100px',
-            filter: 'blur(60px)',
-            zIndex: 0
-          }} />
-          
-          <Button
-            variant="contained"
-            endIcon={<ArrowForward />}
-            sx={{ 
-              px: 8, 
-              py: 2.5, 
-              fontSize: '1.2rem',
-              background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-              color: '#ffffff',
-              borderRadius: '0.75rem',
-              boxShadow: '0 4px 14px rgba(99, 102, 241, 0.5)',
-              position: 'relative',
-              zIndex: 1,
-              '&:hover': { 
-                transform: 'translateY(-2px) scale(1.05)',
-                boxShadow: '0 8px 20px rgba(99, 102, 241, 0.6)'
-              },
-              transition: 'all 0.3s ease'
-            }}
-            onClick={() => navigate("/register")}
-          >
-            Join Now
-          </Button>
-        </Box>
+    
       </Container>
     </Container>
   );
