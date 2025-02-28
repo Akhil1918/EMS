@@ -49,19 +49,7 @@ const Home = () => {
     { title: "Launch", description: "Publish and start managing registrations with our powerful tools and analytics." }
   ];
 
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Event Coordinator",
-      text: "This platform transformed how we manage our corporate events. The intuitive interface saved us countless hours."
-    },
-    {
-      name: "Michael Chen",
-      role: "Conference Organizer",
-      text: "From small meetups to large conferences, this tool scales perfectly with our needs. Highly recommended!"
-    }
-  ];
-
+  
   return (
     <Container 
       maxWidth={false} 
@@ -340,53 +328,7 @@ const Home = () => {
             What Our Users Say
           </Typography>
           
-          <Grid container spacing={4}>
-            {testimonials.map((testimonial, index) => (
-              <Grid item xs={12} md={6} key={index}>
-                <Paper sx={{
-                  p: 4,
-                  background: 'linear-gradient(145deg, rgba(26,26,35,0.7), rgba(22,22,30,0.9))',
-                  backdropFilter: 'blur(10px)',
-                  borderRadius: '1rem',
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
-                  border: '1px solid rgba(255,255,255,0.05)',
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}>
-                  <Box sx={{ display: 'flex', mb: 2 }}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} sx={{ color: '#eab308', fontSize: '1.25rem' }} />
-                    ))}
-                  </Box>
-                  <Typography variant="body1" sx={{ 
-                    color: '#d1d5db',
-                    fontStyle: 'italic',
-                    mb: 3,
-                    lineHeight: 1.8,
-                    flex: 1
-                  }}>
-                    "{testimonial.text}"
-                  </Typography>
-                  <Box>
-                    <Typography variant="subtitle1" sx={{ 
-                      fontWeight: 600,
-                      color: '#ffffff'
-                    }}>
-                      {testimonial.name}
-                    </Typography>
-                    <Typography variant="body2" sx={{ 
-                      color: '#9ca3af'
-                    }}>
-                      {testimonial.role}
-                    </Typography>
-                  </Box>
-                </Paper>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-
+          
         {/* CTA Section */}
         <Box sx={{ 
           textAlign: 'center', 
