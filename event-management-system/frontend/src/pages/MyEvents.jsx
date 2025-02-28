@@ -173,6 +173,13 @@ const MyEvents = () => {
     return () => delete window.updateEventData;
   }, []);
 
+  // Add this function to handle opening the delete dialog
+  const handleOpenDeleteDialog = (eventId) => {
+    const event = events.find(e => e._id === eventId);
+    setSelectedEvent(event);
+    setDeleteDialogOpen(true);
+  };
+
   const handleDelete = async () => {
     try {
       const token = sessionStorage.getItem("token");
