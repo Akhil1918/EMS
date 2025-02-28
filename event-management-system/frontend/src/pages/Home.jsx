@@ -17,8 +17,7 @@ import {
   EventAvailable,
   People,
   Business,
-  ArrowForward,
-  Star
+  ArrowForward
 } from "@mui/icons-material";
 
 const Home = () => {
@@ -49,7 +48,6 @@ const Home = () => {
     { title: "Launch", description: "Publish and start managing registrations with our powerful tools and analytics." }
   ];
 
-  
   return (
     <Container 
       maxWidth={false} 
@@ -317,18 +315,6 @@ const Home = () => {
           </Grid>
         </Box>
 
-        {/* Testimonials Section */}
-        <Box sx={{ mb: 12 }}>
-          <Typography variant="h3" align="center" gutterBottom sx={{ 
-            fontWeight: 700,
-            color: '#ffffff',
-            fontSize: { xs: '1.75rem', md: '2.25rem' },
-            mb: 6
-          }}>
-            What Our Users Say
-          </Typography>
-          
-          
         {/* CTA Section */}
         <Box sx={{ 
           textAlign: 'center', 
@@ -354,36 +340,10 @@ const Home = () => {
             zIndex: 0
           }} />
           
-          <Typography variant="h3" gutterBottom sx={{ 
-            fontWeight: 800,
-            color: '#ffffff',
-            fontSize: { xs: '1.75rem', md: '2.5rem' },
-            position: 'relative',
-            zIndex: 1,
-            textShadow: '0 2px 10px rgba(0,0,0,0.1)',
-            maxWidth: '900px',
-            mx: 'auto'
-          }}>
-            Ready to Transform Your Event Management?
-          </Typography>
-          
-          <Typography variant="h6" sx={{ 
-            color: '#aeb6d0',
-            mb: 6,
-            maxWidth: '700px',
-            mx: 'auto',
-            lineHeight: 1.6,
-            position: 'relative',
-            zIndex: 1
-          }}>
-            Join thousands of event organizers who are saving time and creating memorable experiences
-          </Typography>
-          
           <Button
             variant="contained"
             endIcon={<ArrowForward />}
             sx={{ 
-              mt: 2, 
               px: 8, 
               py: 2.5, 
               fontSize: '1.2rem',
